@@ -11,7 +11,9 @@ node {
    }
    stage('Artifacts') {
        echo 'package the project artifacts..'
+       withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
        sh 'mvn package'
+     }
    
    }
    stage('Deploy to Dev'){
