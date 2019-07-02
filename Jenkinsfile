@@ -9,6 +9,13 @@ node {
        sh 'mvn clean compile'
      }
    }
+   stage('SonarScan') {
+     withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+       withSonarQubeEnv(credentialsId: 'sonarID') {
+         sh 'mvn verify sonar:sonar'   
+       }
+    }
+  }
    stage('Artifacts') {
        echo 'package the project artifacts..'
        withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
