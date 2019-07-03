@@ -12,8 +12,8 @@ node {
    stage('SonarScan') {
       withSonarQubeEnv(credentialsId: 'ItrainSonar', installationName: 'SonarQube') {
          //withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
-             //sh 'mvn clean package sonar:sonar' 
-             sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+             sh 'mvn clean package sonar:sonar' 
+             //sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
             //sh ' mvn org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar ' +
              //' -Dsonar.host.url=https://sonarcloud.io ' +
              //' -Dsonar.organization=itrainavengers '+ 
