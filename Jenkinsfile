@@ -10,7 +10,7 @@ node {
      }
    }
    stage('SonarScan') {
-      withSonarQubeEnv(credentialsId: 'sonarID', installationName: 'SonarQube') {
+      withSonarQubeEnv(credentialsId: 'ItrainSonar', installationName: 'SonarQube') {
          withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
              sh 'mvn org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar'   
          }
