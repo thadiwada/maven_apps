@@ -5,13 +5,13 @@ node {
    }
    stage('Build code') {
       echo 'Build the package'
-      withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+      withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.0.1398') {
        bat 'mvn clean compile'
      }
    }
    stage('SonarScan') {
       //withSonarQubeEnv('SonarQube') {
-         withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+         withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.0.1398') {
              //sh 'mvn clean package sonar:sonar' 
              bat mvn sonar:sonar 
    "-Dsonar.projectKey=<project key>" \
@@ -26,7 +26,7 @@ node {
     
    stage('Artifacts') {
        echo 'package the project artifacts..'
-       withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+       withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.0.1398') {
        bat 'mvn package'
      }
    
