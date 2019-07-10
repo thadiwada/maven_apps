@@ -20,7 +20,7 @@ node {
             // ' -Dsonar.login=c9515e84f9117ab6e598d26c34877938f72481a6 '   
          //}
        withSonarQubeEnv('SonarQube') {
-           sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+           sh 'mvn clean package org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
       }
    }
     
